@@ -17,6 +17,18 @@ class Character < ActiveRecord::Base
         10 + self.mod(self.dex)
     end
 
+    def passive_insight
+        10 + self.mod(self.wis)
+    end
+
+    def passive_investigation
+        10 + self.mod(self.int)
+    end
+
+    def passive_perception
+        10 + self.mod(self.wis)
+    end
+
     def set_base_speed
         if ("Aarakocra Dwarf Gnome Halfling").include?(self.race)
             self.base_speed = 25
