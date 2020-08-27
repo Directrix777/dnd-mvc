@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_27_161713) do
+ActiveRecord::Schema.define(version: 2020_08_27_171509) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_161713) do
     t.integer "max_hp"
     t.string "race"
     t.integer "base_speed"
+    t.string "alignment"
   end
 
   create_table "users", force: :cascade do |t|
