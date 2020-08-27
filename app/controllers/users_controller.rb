@@ -20,6 +20,10 @@ class UsersController < ApplicationController
         if !Helpers.is_logged_in?(session)
             redirect to '/characters'
         end
+        erb :'users/logout'
+    end
+
+    post '/logout' do
         session.clear
         redirect '/login'
     end
