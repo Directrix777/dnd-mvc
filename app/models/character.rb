@@ -46,10 +46,8 @@ class Character < ActiveRecord::Base
 
     def self.create(params)
         new_character = self.new(params)
-        new_character.race = new_character.race.capitalize
         new_character.set_base_speed
         new_character.save
-        #This method sets a few variables the form doesn't have inputs for.
-        #We can also use this to do some formatting.
+        #This method sets any variables the form doesn't have inputs for.
     end
 end
