@@ -20,6 +20,7 @@ class CreateCharacters < ActiveRecord::Migration[6.0]
       t.integer :int
       t.integer :wis
       t.integer :cha
+      t.integer :max_hp
     end
   end
 end
