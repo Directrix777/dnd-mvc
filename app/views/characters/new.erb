@@ -1,0 +1,102 @@
+<form action='/characters' method="post">
+    <%if session[:error]%>
+        <p><%=session[:error]%></p>
+        <%session.clear%>
+    <%end%>
+    Name:
+    <input type="text" id="name" name="name"><br>
+    Alignment:
+    <select id "alignment" name="alignment"><br>
+        <option value="Lawful Good">Lawful Good</option>
+        <option value="Neutral Good">Neutral Good</option>
+        <option value="Chaotic Good">Chaotic Good</option>
+        <option value="Lawful Neutral">Lawful Neutral</option>
+        <option value="True Neutral">True Neutral</option>
+        <option value="Chaotic Neutral">Chaotic Neutral</option>
+        <option value="Lawful Evil">Lawful Evil</option>
+        <option value="Neutral Evil">Neutral Evil</option>
+        <option value="Chaotic Evil">Chaotic Evil</option>
+    </select>
+    Race:
+    <select id="race" name="race">
+        <option value="Aarakocra">Aarakocra</option>
+        <option value="Aasimar">Aasimar</option>
+        <option value="Bugbear">Bugbear</option>
+        <option value="Centaur">Centaur</option>
+        <option value="Changeling">Changeling</option>
+        <option value="Dragonborn">Dragonborn</option>
+        <option value="Dwarf">Dwarf</option>
+        <option value="Elf">Elf</option>
+        <option value="Firbolg">Firbolg</option>
+        <option value="Genasi">Genasi</option>
+        <option value="Gith">Gith</option>
+        <option value="Gnome">Gnome</option>
+        <option value="Goblin">Goblin</option>
+        <option value="Goliath">Goliath</option>
+        <option value="Half-Elf">Half-Elf</option>
+        <option value="Half-Orc">Half-Orc</option>
+        <option value="Halfling">Halfling</option>
+        <option value="Hobgoblin">Hobgoblin</option>
+        <option value="Human">Human</option>
+        <option value="Kalashtar">Kalashtar</option>
+        <option value="Kenku">Kenku</option>
+        <option value="Kobold">Kobold</option>
+        <option value="Leonin">Leonin</option>
+        <option value="Lizardfolk">Lizardfolk</option>
+        <option value="Loxodon">Loxodon</option>
+        <option value="Minotaur">Minotaur</option>
+        <option value="Orc">Orc</option>
+        <option value="Satyr">Satyr</option>
+        <option value="Shifter">Shifter</option>
+        <option value="Simic Hybrid">Simic Hybrid</option>
+        <option value="Tabaxi">Tabaxi</option>
+        <option value="Tiefling">Tiefling</option>
+        <option value="Tortle">Tortle</option>
+        <option value="Warforged">Warforged</option>
+        <option value="Yuan-Ti Pureblood">Yuan-Ti Pureblood</option>
+    <select><br>
+    <h2>Class Levels</h2>
+    Barbarian Level:
+    <input type="number" id="barbarian_level" min="0" max="20" name="barbarian_level" value="0"><br>
+    Bard Level:
+    <input type="number" id="bard_level" min="0" max="20" name="bard_level" value="0"><br>
+    Cleric Level:
+    <input type="number" id="cleric_level" min="0" max="20" name="cleric_level" value="0"><br>
+    Druid Level:
+    <input type="number" id="druid_level" min="0" max="20" name="druid_level" value="0"><br>
+    Fighter Level:
+    <input type="number" id="fighter_level" min="0" max="20" name="fighter_level" value="0"><br>
+    Monk Level:
+    <input type="number" id="monk_level" min="0" max="20" name="monk_level" value="0"><br>
+    Paladin Level:
+    <input type="number" id="paladin_level" min="0" max="20" name="paladin_level" value="0"><br>
+    Ranger Level:
+    <input type="number" id="ranger_level" min="0" max="20" name="ranger_level" value="0"><br>
+    Rogue Level:
+    <input type="number" id="rogue_level" min="0" max="20" name="rogue_level" value="0"><br>
+    Sorcerer Level:
+    <input type="number" id="sorcerer_level" min="0" max="20" name="sorcerer_level" value="0"><br>
+    Warlock Level:
+    <input type="number" id="warlock_level" min="0" max="20" name="warlock_level" value="0"><br>
+    Wizard Level:
+    <input type="number" id="wizard_level" min="0" max="20" name="wizard_level" value="0"><br>
+
+    <h2>Character Stats</h2>
+    Strength:
+    <input type="number" id="str" min="0" max="20" name="str" value="0"><br>
+    Dexterity:
+    <input type="number" id="dex" min="0" max="20" name="dex" value="0"><br>
+    Constitution:
+    <input type="number" id="con" min="0" max="20" name="con" value="0"><br>
+    Inteligence:
+    <input type="number" id="int" min="0" max="20" name="int" value="0"><br>
+    Wisdom:
+    <input type="number" id="wis" min="0" max="20" name="wis" value="0"><br>
+    Charisma:
+    <input type="number" id="cha" min="0" max="20" name="cha" value="0"><br>
+    
+    Create Your character:
+
+    <input type="submit" id="submit">
+
+  </form>
