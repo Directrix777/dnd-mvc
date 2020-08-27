@@ -4,4 +4,40 @@ class Character < ActiveRecord::Base
     def mod(stat)
         (stat - 10)/2
     end
+
+    def total_level
+        self.barbarian_level + self.bard_level + self.cleric_level + self.druid_level + self.fighter_level + self.monk_level + self.paladin_level + self.ranger_level + self.rogue_level + self.sorcerer_level + self.warlock_level + self.wizard_level
+    end
+
+    def prof_mod
+        (self.total_level + 7)/4
+    end
+
+    def base_ac
+        10 + self.mod(self.dex)
+    end
+
+    def set_base_speed
+        if ("Aarakocra Dwarf Gnome Halfling").include?(self.race)
+            self.base_speed = 25
+        elsif self.race == "Centaur"
+            self.base_speed = 40
+        else
+            self.base_speed = 30
+        end
+
+    end
+
+    def speed
+        self.base_speed + (self.mod(self.dex) * 5)
+    end
+
+    def self.create(params)
+        new_character = self.new(params)
+        new_character.race = new_character.race.capitalize
+        new_character.set_base_speed
+        new_character.save
+        #This method sets a few variables the form doesn't have inputs for.
+        #We can also use this to do some formatting.
+    end
 end
