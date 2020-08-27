@@ -24,7 +24,7 @@ class CharactersController < ApplicationController
             session[:error] = "Please fill in all fields"
             redirect '/characters/new'
         end
-        character = Character.create(params[:character])
+        character = Character.create(params)
         character.user_id = session[:user_id]
         character.save
 
