@@ -48,6 +48,7 @@ class Character < ActiveRecord::Base
         new_character = self.new(params)
         new_character.set_base_speed
         new_character.save
+        new_character
         #This method sets any variables the form doesn't have inputs for.
     end
 end
