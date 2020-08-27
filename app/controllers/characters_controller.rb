@@ -8,6 +8,10 @@ class CharactersController < ApplicationController
         erb :'characters/index'
     end
 
+    post '/characters/dev' do
+        binding.pry
+    end
+
     get '/characters/new' do
         if !Helpers.is_logged_in?(session)
             redirect to '/login'
