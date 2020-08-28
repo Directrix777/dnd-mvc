@@ -18,7 +18,7 @@ class Character < ActiveRecord::Base
     end
 
     def prof_mod
-        (self.total_level + 7)/4
+        "+" + ((self.total_level + 7)/4).to_s
     end
 
     def base_ac
