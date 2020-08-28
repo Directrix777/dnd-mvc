@@ -1,0 +1,18 @@
+<a href="/characters">Bact to list</a>
+<h1><%=@user.username%>'s Characters</h1>
+<hr>
+<%@user.characters.each do |character|%>
+    <h2>
+        <a href="/characters/<%=character.id%>"><%=character.name%></a>
+    </h2>
+    <h3>Race : <%=character.race%></h3>
+    <h3>
+        <%Helpers.get_pretty_levels(character).each do |pretty_level|%>
+            <%if pretty_level != Helpers.get_pretty_levels(character).last%>
+                <%=pretty_level%>, 
+            <%end%>
+        <%end%>
+        <%=Helpers.get_pretty_levels(character).last%>
+    </h3>
+    <hr>
+<%end%>
