@@ -1,0 +1,104 @@
+<form action='/characters' method="post">
+    <%if session[:error]%>
+        <p><%=session[:error]%></p>
+        <%session[:error] = nil%>
+    <%end%>
+    Name:
+    <input type="text" id="name" name="name" value=<%=@character.name%>><br>
+    Alignment:
+    <select id "alignment" name="alignment">
+        <option value="Lawful Good" <%="selected" if @character.alignment == "Lawful Good"%>>Lawful Good</option>
+        <option value="Neutral Good"<%="selected" if @character.alignment == "Neutral Good"%>>Neutral Good</option>
+        <option value="Chaotic Good"<%="selected" if @character.alignment == "Chaotic Good"%>>Chaotic Good</option>
+        <option value="Lawful Neutral"<%="selected" if @character.alignment == "Lawful Neutral"%>>Lawful Neutral</option>
+        <option value="True Neutral"<%="selected" if @character.alignment == "True Neutral"%>>True Neutral</option>
+        <option value="Chaotic Neutral"<%="selected" if @character.alignment == "Chaotic Neutral"%>>Chaotic Neutral</option>
+        <option value="Lawful Evil"<%="selected" if @character.alignment == "Lawful Evli"%>>Lawful Evil</option>
+        <option value="Neutral Evil"<%="selected" if @character.alignment == "Neutral Evli"%>>Neutral Evil</option>
+        <option value="Chaotic Evil"<%="selected" if @character.alignment == "Chaotic Evli"%>>Chaotic Evil</option>
+    </select><br>
+    Race:
+    <select id="race" name="race">
+        <option value="Aarakocra"<%="selected" if @character.race == "Aarakocra"%>>Aarakocra</option>
+        <option value="Aasimar"<%="selected" if @character.race == "Aasimar"%>>Aasimar</option>
+        <option value="Bugbear"<%="selected" if @character.race == "Bugbear"%>>Bugbear</option>
+        <option value="Centaur"<%="selected" if @character.race == "Centaur"%>>Centaur</option>
+        <option value="Changeling"<%="selected" if @character.race == "Changeling"%>>Changeling</option>
+        <option value="Dragonborn"<%="selected" if @character.race == "Dragonborn"%>>Dragonborn</option>
+        <option value="Dwarf"<%="selected" if @character.race == "Dwarf"%>>Dwarf</option>
+        <option value="Elf"<%="selected" if @character.race == "Elf"%>>Elf</option>
+        <option value="Firbolg"<%="selected" if @character.race == "Firbolg"%>>Firbolg</option>
+        <option value="Genasi"<%="selected" if @character.race == "Genasi"%>>Genasi</option>
+        <option value="Gith"<%="selected" if @character.race == "Gith"%>>Gith</option>
+        <option value="Gnome"<%="selected" if @character.race == "Gnome"%>>Gnome</option>
+        <option value="Goblin"<%="selected" if @character.race == "Goblin"%>>Goblin</option>
+        <option value="Goliath"<%="selected" if @character.race == "Goliath"%>>Goliath</option>
+        <option value="Half-Elf"<%="selected" if @character.race == "Half-Elf"%>>Half-Elf</option>
+        <option value="Half-Orc"<%="selected" if @character.race == "Half-Orc"%>>Half-Orc</option>
+        <option value="Halfling"<%="selected" if @character.race == "Halfling"%>>Halfling</option>
+        <option value="Hobgoblin"<%="selected" if @character.race == "Hobgoblin"%>>Hobgoblin</option>
+        <option value="Human"<%="selected" if @character.race == "Human"%>>Human</option>
+        <option value="Kalashtar"<%="selected" if @character.race == "Kalashtar"%>>Kalashtar</option>
+        <option value="Kenku"<%="selected" if @character.race == "Kenku"%>>Kenku</option>
+        <option value="Kobold"<%="selected" if @character.race == "Kobold"%>>Kobold</option>
+        <option value="Leonin"<%="selected" if @character.race == "Leonin"%>>Leonin</option>
+        <option value="Lizardfolk"<%="selected" if @character.race == "Lizardfolk"%>>Lizardfolk</option>
+        <option value="Loxodon"<%="selected" if @character.race == "Loxodon"%>>Loxodon</option>
+        <option value="Minotaur"<%="selected" if @character.race == "Minotaur"%>>Minotaur</option>
+        <option value="Orc"<%="selected" if @character.race == "Orc"%>>Orc</option>
+        <option value="Satyr"<%="selected" if @character.race == "Satyr"%>>Satyr</option>
+        <option value="Shifter"<%="selected" if @character.race == "Shifter"%>>Shifter</option>
+        <option value="Simic Hybrid"<%="selected" if @character.race == "Simic Hybrid"%>>Simic Hybrid</option>
+        <option value="Tabaxi"<%="selected" if @character.race == "Tabaxi"%>>Tabaxi</option>
+        <option value="Tiefling"<%="selected" if @character.race == "Tiefling"%>>Tiefling</option>
+        <option value="Tortle"<%="selected" if @character.race == "Tortle"%>>Tortle</option>
+        <option value="Warforged"<%="selected" if @character.race == "Warforged"%>>Warforged</option>
+        <option value="Yuan-Ti Pureblood"<%="selected" if @character.race == "Yuan-Ti Pureblood"%>>Yuan-Ti Pureblood</option>
+    <select><br>
+    <h2>Class Levels</h2>
+    Barbarian Level:
+    <input type="number" id="barbarian_level" min="0" max="20" name="barbarian_level" value=<%=@character.barbarian_level%>><br>
+    Bard Level:
+    <input type="number" id="bard_level" min="0" max="20" name="bard_level" value=<%=@character.bard_level%>><br>
+    Cleric Level:
+    <input type="number" id="cleric_level" min="0" max="20" name="cleric_level" value=<%=@character.cleric_level%>><br>
+    Druid Level:
+    <input type="number" id="druid_level" min="0" max="20" name="druid_level" value=<%=@character.druid_level%>><br>
+    Fighter Level:
+    <input type="number" id="fighter_level" min="0" max="20" name="fighter_level" value=<%=@character.fighter_level%>><br>
+    Monk Level:
+    <input type="number" id="monk_level" min="0" max="20" name="monk_level" value=<%=@character.monk_level%>><br>
+    Paladin Level:
+    <input type="number" id="paladin_level" min="0" max="20" name="paladin_level" value=<%=@character.paladin_level%>><br>
+    Ranger Level:
+    <input type="number" id="ranger_level" min="0" max="20" name="ranger_level" value=<%=@character.ranger_level%>><br>
+    Rogue Level:
+    <input type="number" id="rogue_level" min="0" max="20" name="rogue_level" value=<%=@character.rogue_level%>><br>
+    Sorcerer Level:
+    <input type="number" id="sorcerer_level" min="0" max="20" name="sorcerer_level" value=<%=@character.sorcerer_level%>><br>
+    Warlock Level:
+    <input type="number" id="warlock_level" min="0" max="20" name="warlock_level" value=<%=@character.warlock_level%>><br>
+    Wizard Level:
+    <input type="number" id="wizard_level" min="0" max="20" name="wizard_level" value=<%=@character.wizard_level%>><br>
+
+    <h2>Character Stats</h2>
+    Strength:
+    <input type="number" id="str" min="0" max="20" name="str" value=<%=@character.str%>><br>
+    Dexterity:
+    <input type="number" id="dex" min="0" max="20" name="dex" value=<%=@character.dex%>><br>
+    Constitution:
+    <input type="number" id="con" min="0" max="20" name="con" value=<%=@character.con%>><br>
+    Inteligence:
+    <input type="number" id="int" min="0" max="20" name="int" value=<%=@character.int%>><br>
+    Wisdom:
+    <input type="number" id="wis" min="0" max="20" name="wis" value=<%=@character.wis%>><br>
+    Charisma:
+    <input type="number" id="cha" min="0" max="20" name="cha" value=<%=@character.cha%>><br>
+    Max HP:
+    <input type="number" id="max_hp" min="0" max="20" name="max_hp" value=<%=@character.max_hp%>><br>
+    
+    Submit Your character:
+
+    <input type="submit" id="submit">
+
+  </form>
