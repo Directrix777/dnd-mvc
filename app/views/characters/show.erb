@@ -1,0 +1,57 @@
+<a href="/characters">Bact to list</a>
+
+<h1><%=@character.name%></h1>
+<%Helpers.get_pretty_levels(@character).each do |pretty_level|%>
+    <h3><%=pretty_level%></h3>
+<%end%>
+<h3>Created by <a href="/users/<%=@character.user.id%>"><%=@character.user.username%></a></h3>
+
+<h2>Ability Scores</h2>
+<p>Str:<%=@character.str%>(<%=@character.str_mod(@character.str)%>)</p>
+<p>Dex:<%=@character.dex%>(<%=@character.str_mod(@character.dex)%>)</p>
+<p>Con:<%=@character.con%>(<%=@character.str_mod(@character.con)%>)</p>
+<p>Int:<%=@character.int%>(<%=@character.str_mod(@character.int)%>)</p>
+<p>Wis:<%=@character.wis%>(<%=@character.str_mod(@character.wis)%>)</p>
+<p>Cha:<%=@character.cha%>(<%=@character.str_mod(@character.cha)%>)</p>
+<h2>Combat Info</h2>
+<p>Max HP: <%=@character.max_hp%></p>
+<p>Base AC: <%=@character.base_ac%></p>
+<p>Speed: <%=@character.speed%>
+<h2>Skills</h2>
+<p>Acrobatics: (<%=@character.str_mod(@character.dex)%>)</p>
+<p>Animal Handling: (<%=@character.str_mod(@character.wis)%>)</p>
+<p>Arcana: (<%=@character.str_mod(@character.int)%>)</p>
+<p>Athletics: (<%=@character.str_mod(@character.str)%>)</p>
+<p>Deception: (<%=@character.str_mod(@character.cha)%>)</p>
+<p>History: (<%=@character.str_mod(@character.int)%>)</p>
+<p>Insight: (<%=@character.str_mod(@character.wis)%>)</p>
+<p>Intimidation: (<%=@character.str_mod(@character.cha)%>)</p>
+<p>Investigation: (<%=@character.str_mod(@character.int)%>)</p>
+<p>Medicine: (<%=@character.str_mod(@character.wis)%>)</p>
+<p>Nature: (<%=@character.str_mod(@character.int)%>)</p>
+<p>Perception: (<%=@character.str_mod(@character.wis)%>)</p>
+<p>Performance: (<%=@character.str_mod(@character.cha)%>)</p>
+<p>Persuasion: (<%=@character.str_mod(@character.cha)%>)</p>
+<p>Religion: (<%=@character.str_mod(@character.int)%>)</p>
+<p>Sleight of Hand: (<%=@character.str_mod(@character.dex)%>)</p>
+<p>Stealth: (<%=@character.str_mod(@character.dex)%>)</p>
+<p>Survival: (<%=@character.str_mod(@character.wis)%>)</p>
+<br>
+<h3>Proficiency Bonus: <%=@character.prof_mod%></h3>
+<h3>Passive Insight: <%=@character.passive_insight%></h3>
+<h3>Passive Investigation: <%=@character.passive_investigation%></h3>
+<h3>Passive Perception: <%=@character.passive_perception%></h3>
+
+<a href="/characters/<%=@character.id%>/edit">Edit Character</a>
+
+<form action="/characters/<%=@character.id%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" id="delete" value="Delete Character">
+</form>
+
+<%if session[:error]%>
+        <p><%=session[:error]%></p>
+        <%session[:error] = nil%>
+    <%end%>
+
+
