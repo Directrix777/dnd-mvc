@@ -1,7 +1,7 @@
 <form action='/characters' method="post">
     <%if session[:error]%>
         <p><%=session[:error]%></p>
-        <%session.clear%>
+        <%session[:error] = nil%>
     <%end%>
     Name:
     <input type="text" id="name" name="name"><br>
