@@ -43,7 +43,12 @@ class CharactersController < ApplicationController
         if !Helpers.is_logged_in?(session)
             redirect to '/login'
         end
+        @user = User.find(session[:user_id])
         @character = Character.find(params[:id])
+        if @user != @character.user
+            session[:error] = "That's not yours to edit!"
+            redirect "/characters/#{@character.id}"
+        end
         erb :'characters/edit'
     end
 
