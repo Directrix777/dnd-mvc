@@ -1,0 +1,16 @@
+<h1>Characters</h1>
+<%@characters.each do |character|%>
+    <h2>
+        <a href="/characters/<%=character.id%>"><%=character.name%></a>
+    </h2>
+    <h3>Race : <%=character.race%></h3>
+    <h3>
+        <%Helpers.get_pretty_levels(character).each do |pretty_level|%>
+            <%=pretty_level%>, 
+        <%end%>
+    </h3>
+    <h3>Created by 
+        <a href="/users/<%=character.user.id%>"><%=character.user.username%></a>
+    </h3>
+    <hr>
+<%end%>
