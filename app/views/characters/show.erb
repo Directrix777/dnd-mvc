@@ -5,7 +5,7 @@
 <%Helpers.get_pretty_levels(@character).each do |pretty_level|%>
     <h3><%=pretty_level%></h3>
 <%end%>
-<h3>Created by <a href="/users/<%=@character.user.id%>"><%=@character.user.username%></a></h3>
+<h3>Created by <a href="/users/<%=@character.user.slug%>"><%=@character.user.username%></a></h3>
 
 <h2>Ability Scores</h2>
 <p>Str:<%=@character.str%>(<%=@character.str_mod(@character.str)%>)</p>
