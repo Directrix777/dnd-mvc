@@ -14,6 +14,7 @@ class UsersController < ApplicationController
         user = User.new(params)
         if user.invalid?
             session[:error] = "That username is already taken"
+            redirect to '/signup'
         end
         session[:user_id] = user.id
         redirect to '/characters'
