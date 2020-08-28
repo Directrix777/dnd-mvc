@@ -54,8 +54,9 @@ class CharactersController < ApplicationController
 
     patch '/characters/:id' do
         character = Character.find(params[:id])
-        if params[:character][:content] == ""
-            session[:error] = "Character cannot be blank"
+        params.delete(:_method)
+        if params.include?("")
+            session[:error] = "Please fill in all fields"
             redirect "/characters/#{character.id}/edit"
         end
         if !Helpers.is_logged_in?(session)
@@ -65,7 +66,9 @@ class CharactersController < ApplicationController
         if user == character.user
             character.update(params)
             character.set_base_speed
+            character.save
         end
+        redirect to "/characters/#{character.id}"
     end
 
     delete '/characters/:id' do
