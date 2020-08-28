@@ -7,8 +7,11 @@
     <h3>Race : <%=character.race%></h3>
     <h3>
         <%Helpers.get_pretty_levels(character).each do |pretty_level|%>
-            <%=pretty_level%>, 
+            <%if pretty_level != Helpers.get_pretty_levels(character).last%>
+                <%=pretty_level%>, 
+            <%end%>
         <%end%>
+        <%=Helpers.get_pretty_levels(character).last%>
     </h3>
     <h3>Created by 
         <a href="/users/<%=character.user.slug%>"><%=character.user.username%></a>
