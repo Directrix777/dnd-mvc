@@ -7,10 +7,13 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do
-        user = User.new(params)
-        if !(user.save)
+        if  params.include?("")
             session[:error] = "Please fill out all fields"
             redirect '/signup'
+        end
+        user = User.new(params)
+        if user.invalid?
+            session[:error] = "That username is already taken"
         end
         session[:user_id] = user.id
         redirect to '/characters'
