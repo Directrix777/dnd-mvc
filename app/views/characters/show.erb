@@ -1,6 +1,7 @@
 <a href="/characters">Bact to list</a>
 
 <h1><%=@character.name%></h1>
+<h3>Race : <%=@character.race%>></h3>
 <%Helpers.get_pretty_levels(@character).each do |pretty_level|%>
     <h3><%=pretty_level%></h3>
 <%end%>
@@ -42,12 +43,15 @@
 <h3>Passive Investigation: <%=@character.passive_investigation%></h3>
 <h3>Passive Perception: <%=@character.passive_perception%></h3>
 
-<a href="/characters/<%=@character.id%>/edit">Edit Character</a>
 
-<form action="/characters/<%=@character.id%>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" id="delete" value="Delete Character">
-</form>
+
+<%if session[:user_id] == @character.user.id%>
+    <a href="/characters/<%=@character.id%>/edit">Edit Character</a>
+    <form action="/characters/<%=@character.id%>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" id="delete" value="Delete Character">
+    </form>
+<%end%>
 
 <%if session[:error]%>
         <p><%=session[:error]%></p>
