@@ -16,6 +16,7 @@ class UsersController < ApplicationController
             session[:error] = "That username is already taken"
             redirect to '/signup'
         end
+        user.save
         session[:user_id] = user.id
         redirect to '/characters'
     end
