@@ -70,6 +70,7 @@ class CharactersController < ApplicationController
         user = User.find(session[:user_id])
         character = Character.find(params[:id])
         if user != character.user
+            session[:error] = "That's not yours to delete!"
             redirect "/characters/#{character.id}"
         end
         Character.destroy(params[:id])
