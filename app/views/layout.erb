@@ -5,6 +5,9 @@
   </head>
   <body>
     <h1>D&D MVC: Making Various Characters for Dungeons & Dragons</h1>
+    <%if session[:user_id] != nil%>
+      <a href="/logout">Log Out</a>
+    <%end%>
     <%=yield%>
   </body>
 </html>
