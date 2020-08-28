@@ -63,8 +63,8 @@ class CharactersController < ApplicationController
         end
         user = User.find(session[:user_id])
         if user == character.user
-            character.update(params[:character])
-
+            character.update(params)
+            character.set_base_speed
         end
     end
 
