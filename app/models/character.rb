@@ -2,7 +2,11 @@ class Character < ActiveRecord::Base
     belongs_to :user
 
     def mod(stat)
-        mod = ((stat - 10)/2)
+        ((stat - 10)/2)
+    end
+
+    def str_mod(stat)
+        mod = self.mod(stat)
         if mod > 0
             mod = "+" + mod.to_s
         end
