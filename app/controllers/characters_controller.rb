@@ -28,7 +28,7 @@ class CharactersController < ApplicationController
         character.user_id = session[:user_id]
         character.save
 
-        redirect '/characters'
+        redirect '/characters/<%=character.id%>'
     end
 
     get '/characters/:id' do
